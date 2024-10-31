@@ -1,5 +1,7 @@
+package Junit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -34,7 +36,7 @@ public class SocioTest {
         }
     }
 
-    @Test
+    /* @Test
     void encargadoEsSocio() throws YaExisteSocioException {
         NominaSocios.Asociar(p1);
         NominaSocios.Asociar(p2);
@@ -43,5 +45,28 @@ public class SocioTest {
         for (Socio soc : list) {
             assertNotEquals(soc.getPersona(), act.getEncargado());
         }
+    } */
+   @Test
+    void encargadoEsSocio() throws YaExisteSocioException {
+        // Arrange: Asociamos varios socios a la nómina
+        NominaSocios.Asociar(p1);
+        NominaSocios.Asociar(p2);
+        NominaSocios.Asociar(p3);
+
+        // Act: Obtenemos la lista de socios en la nómina
+        ArrayList<Socio> list = NominaSocios.GetNomina();
+        
+        // Verificamos que el encargado de la actividad está en la lista de socios
+        boolean encargadoEsSocio = false;
+        for (Socio soc : list) {
+            if (soc.getPersona().equals(act.getEncargado())) {
+                encargadoEsSocio = true;
+                break;
+            }
+        }
+        
+        // Assert: Confirmamos que el encargado está en la nómina de socios
+        assertTrue(encargadoEsSocio, "El encargado de la actividad debe ser un socio de la nómina");
     }
+
 }

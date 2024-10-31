@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SuiteDePruebas" verbose="1">
+    
+    <!-- Definición del conjunto de pruebas -->
+    <test name="Pruebas de OfertaActividades">
+        
+        <!-- Listado de clases de prueba -->
+        <classes>
+            <class name="src.test.java.TestNG.TestActividadNG"/>
+        </classes>
+        
+    </test>
+    
+</suite>

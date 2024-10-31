@@ -13,9 +13,9 @@ public class PruebaHumo {
 			System.out.println(NominaSocios.YaExisteEnNomina(new Persona("Juan Bautsta","Alberdii","25073057" ,50)));
 			System.out.println(NominaSocios.nomina.get(0));
 			
-			OfertaActividades.NuevaActividad(new Actividad("Futbol",new Persona("Juan Salvador","Bilardo","1225588",70 ),2,16));
+			/* OfertaActividades.NuevaActividad(new Actividad("Futbol",new Persona("Juan Salvador","Bilardo","1225588",70 ),2,16));
 			OfertaActividades.NuevaActividad(new Actividad("Tenis",new Persona("Juan Matín","Del Potro","285588",350 ),4,50));
-
+ */
 			
 		} catch (YaExisteSocioException e) {
 			// TODO Auto-generated catch block

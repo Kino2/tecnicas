@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class OfertaActividades {
 	static ArrayList<Actividad> nomina;
 	
-	static public void NuevaActividad(Actividad act) {
+	public void NuevaActividad(Actividad act) {
 		if(nomina==null) nomina = new ArrayList<Actividad>();
 		if(nomina.indexOf(act)<0) nomina.add(act);
 	}
@@ -15,7 +15,7 @@ public class OfertaActividades {
 		if(nomina.indexOf(act)<0) nomina.remove(act);
 	}
 	
-	static public int CantidadActividades() {
+	public int CantidadActividades() {
 		return nomina.size();
 	}
 
