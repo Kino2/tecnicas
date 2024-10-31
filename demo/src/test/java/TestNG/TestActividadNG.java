@@ -30,4 +30,11 @@ public class TestActividadNG {
 
         }
     }
+
+    @Test
+    public void testToStringActividad() throws Exception {
+        // Usamos Assert.assertEquals de TestNG
+        Assert.assertEquals(Act1.toString(), Act1.getNombre()+"  a cargo de "+Act1.getEncargado().getNombre());
+        Assert.assertEquals(Act1.toString(), "asda  a cargo de Esteban");
+    }
 }
