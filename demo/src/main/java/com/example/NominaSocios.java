@@ -11,7 +11,7 @@ static int proxSocio;
  * @param p Persona a asociar. Si la persona ya existe,  no se efectiviza el alta y se lanza una excepcion
  * @author oscar
  * */
-public static void Asociar(Persona p)  throws YaExisteSocioException {
+public static void Asociar(Persona p) throws YaExisteSocioException {
 	Socio s = new Socio(p);
 	if(nomina==null) nomina= new ArrayList<Socio>();
 	if(!NominaSocios.YaExisteEnNomina(p)) {
