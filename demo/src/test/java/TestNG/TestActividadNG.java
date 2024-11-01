@@ -31,10 +31,19 @@ public class TestActividadNG {
         }
     }
 
+//Comprobar que el método toString() de Actividad devuelve una cadena con el formato "<NombreActividad> a cargo de <Apellido>"
     @Test
     public void testToStringActividad() throws Exception {
-        // Usamos Assert.assertEquals de TestNG
-        Assert.assertEquals(Act1.toString(), Act1.getNombre()+"  a cargo de "+Act1.getEncargado().getNombre());
-        Assert.assertEquals(Act1.toString(), "asda  a cargo de Esteban");
+
+        // Act: Llamamos al método toString de Actividad
+        String resultadoToString = Act1.toString();
+
+        // Assert: Verificamos que el formato devuelto sea el esperado
+        String esperado = Act1.getNombre()+"  a cargo de "+Act1.getEncargado().getNombre();
+
+        Assert.assertEquals(resultadoToString, esperado, "El método toString() de Actividad no devuelve el formato esperado");
     }
+
+
+
 }

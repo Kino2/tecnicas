@@ -1,7 +1,9 @@
 package Junit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.BeforeAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.example.OfertaActividades;
@@ -9,23 +11,28 @@ import com.example.Actividad;
 import com.example.Persona;
 
 public class OfertaActividadesTest {
-    static OfertaActividades Activ;  // Variables de clase
-    static Actividad Act1;
+    OfertaActividades Activ;  // Variable de instancia
+    Actividad Act1;           // Variable de instancia
 
-    @BeforeAll
-    static void setUp() throws Exception {
-        Activ = new OfertaActividades();  // Inicializamos las variables de clase
+    @BeforeEach
+    void setUp() throws Exception {
+        Activ = new OfertaActividades();  // Inicializamos las variables de instancia
         Persona p1 = new Persona("Esteban", "Orellano", "1231231", 21);
         Act1 = new Actividad("asda", p1, 123, 54);
     }
 
     @Test
     void testAgregarActividades() throws Exception {
-        Activ.NuevaActividad(Act1);  // Llamada a través de la instancia "Activ"
-        try {
-            Activ.NuevaActividad(Act1);  // Intento de agregar la misma actividad
-        } catch (Exception e) {
-            assertEquals(1, Activ.CantidadActividades(), "La cantidad de actividades no es la esperada");
-        }
+        // Agregamos la actividad por primera vez
+        Activ.NuevaActividad(Act1);
+        
+        // Verificamos que agregar la misma actividad lanza la excepción esperada
+        Exception exception = assertThrows(Exception.class, () -> {
+            Activ.NuevaActividad(Act1);
+        });
+
+        // Verificamos que solo hay una actividad registrada después del intento duplicado
+        assertEquals(1, Activ.CantidadActividades(), "La cantidad de actividades no es la esperada");
     }
 }
+
