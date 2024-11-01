@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import com.example.NominaSocios;
 import com.example.Persona;
 import com.example.Actividad;
+import com.example.EdadInsuficienteException;
 import com.example.Socio;
 import com.example.YaExisteSocioException;
 
@@ -34,7 +35,7 @@ public class SocioTest {
     }
 
     @Test
-    void check() throws YaExisteSocioException {
+    void check() throws Exception{
         // Uso de la instancia `nomina` en lugar de una referencia estática
         nomina.Asociar(p1);
         try {
@@ -45,7 +46,7 @@ public class SocioTest {
     }
 
     @Test
-    void encargadoEsSocio() throws YaExisteSocioException {
+    void encargadoEsSocio() throws Exception {
         // Arrange: Asociamos varios socios a la nómina
         nomina.Asociar(p1);
         nomina.Asociar(p2);

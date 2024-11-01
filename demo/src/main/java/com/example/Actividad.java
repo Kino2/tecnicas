@@ -57,7 +57,7 @@ public void setCantidadLimiteParticipantes(int cupo) {
 public void inscribirSocio(Socio s) throws CupoExcedidoException, EdadInsuficienteException{
 	if(inscriptos== null) inscriptos = new ArrayList<Socio>();
 	if(s.getPersona().getEdad()<edadMinima)  throw new EdadInsuficienteException();
-	if(this.getInscriptos().size() < this.getCupo()) throw new CupoExcedidoException();
+	if(this.getInscriptos().size() >= this.getCupo()) throw new CupoExcedidoException();
 		
 		inscriptos.add(s);
 }
