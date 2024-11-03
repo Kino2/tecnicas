@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run TestNG Suite",
+            "type": "shell",
+            "command": "mvn",
+            "args": [
+                "test",
+                "-DsuiteXmlFile=testng.xml"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

@@ -78,5 +78,5 @@ public class TestSocio {
         String esperado = p.getNombre() + " " + p.getApellido();
         nomina.Baja(nominaToString.get(0));
         Assert.assertEquals(esperado, resultadoToString);
-    }
+    } 
 }
