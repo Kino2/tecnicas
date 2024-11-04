@@ -25,7 +25,7 @@ public class TestActividadNG {
         nomina = new NominaSocios();
         Activ = new OfertaActividades();
         p1 = new Persona("Esteban", "Orellano", "1231231", 20);
-        p2 = new Persona("Gonzalo", "Lucio", "21412", 21);
+        p2 = new Persona("Gonzalo", "Lucio", "21412", 17);
         Act1 = new Actividad("asda", p2, 1, 18);
     }
 
@@ -106,5 +106,21 @@ public class TestActividadNG {
         }
     }
 
-    
+    //Comprobar que al intentar inscribir un socio con una edad no permitida se dispara la excepción EdadInsuficieneException
+    @Test(expectedExceptions = EdadInsuficienteException.class)
+    public void testAgregarActividadesNganes() throws CupoExcedidoException, YaExisteSocioException, EdadInsuficienteException {
+        nomina.Asociar(p2);  // Asociamos al socio con edad insuficiente
+        Act1.inscribirSocio(nomina.GetNomina().get(0));  // Esto debería lanzar EdadInsuficienteException
+    }
+
+    //si se hace de la manera anterior tira error el test cuando no salta la excepcion
+    @Test
+    public void testAgregarActNG()throws CupoExcedidoException, YaExisteSocioException, EdadInsuficienteException{
+        nomina.Asociar(p2);
+        try {
+            Act1.inscribirSocio(nomina.GetNomina().get(0));
+        } catch (EdadInsuficienteException e) {
+            Assert.fail("Tas chiquito");
+        }
+    }
 }
